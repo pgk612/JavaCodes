@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.*;
+class Composite
+{
+    public static void main(String args[])
+    {
+        Scanner in= new Scanner(System.in);
+        int n,p,i,c=0;
+        System.out.println("Enter Number");
+        n= in.nextInt(); // Input number from user
+        p=n; // store the entered number in "p" variable
+        for(i=2;i<n;i++)
+        {
+            if(n%i==0) // checking factors of the number
+            {
+                c++;
+            }
+        }
+        if(c>1) // if factors are greater than 1
+        {
+            System.out.println("It is Composite Number : "+p);
+        }
+        else
+        {
+            System.out.println("It is not Composite Number : "+p);
+        }
+    } // end of main method
+} // end of class
