@@ -1,0 +1,57 @@
+import java.util.*;
+ 
+class GFG {
+ 
+  // Function to check if a subarray of size i exists
+  // that contain all the numbers in the range [1, i]
+  static void checksubarrayExist1_N(int arr[], int N)
+  {
+ 
+    // Store the position
+    // of each element of arr[]
+    Map<Integer, Integer> pos=new HashMap<>();
+ 
+    // Traverse the array
+    for (int i = 0; i < N; i++) {
+ 
+      // Insert the position
+      // of arr[i]
+      pos.put(arr[i],i);
+    }
+ 
+    // Store position of each element
+    // from the range [1, N]
+    Set<Integer> st=new HashSet<>();
+ 
+    // Iterate over the range [1, N]
+    for (int i = 1; i <= N; i++) {
+ 
+      // Insert the index of i into st
+      st.add(pos.get(i));
+      // Find the smallest element of st
+      int Min = Collections.min(st);
+ 
+      // Find the largest element of st
+      int Max = Collections.max(st);
+ 
+      // If distance between the largest
+      // and smallest element of arr[]
+      // till i-th index is equal to i
+      if (Max - Min + 1 == i) {
+        System.out.print("True ");
+      }
+      else {
+        System.out.print("False ");
+      }
+    }
+  }
+ 
+  // Driver code
+  public static void main(String[] args)
+  {
+    int arr[] = { 1, 4, 3, 2 };
+    int N = arr.length;
+ 
+    checksubarrayExist1_N(arr, N);
+  }
+}
